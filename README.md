@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # mm-times
 
 This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
@@ -57,3 +58,6 @@ A typical Framework project looks like this:
 | `npm run deploy`     | Deploy your app to Observable                            |
 | `npm run clean`      | Clear the local data loader cache                        |
 | `npm run observable` | Run commands like `observable help`                      |
+=======
+# mm-times
+>>>>>>> 2fac6fbf6431d9768ca151af296b1e02429243a6
