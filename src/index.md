@@ -338,7 +338,7 @@ body {
 }
 
 .victory-heart {
-    font-size: 69px;
+    font-size: 75px;
     margin: 20px 0;
     animation: heartBeat 1.5s ease-in-out infinite;
 }
@@ -441,23 +441,38 @@ body {
     }
     
     .victory-content {
-        padding: 30px;
+        padding: 20px;
+        max-height: 85vh;
     }
     
     .victory-title {
-        font-size: 28px;
+        font-size: 22px;
+        margin-bottom: 10px;
     }
     
     .victory-heart {
-        font-size: 60px;
+        font-size: 50px;
+        margin: 10px 0;
     }
     
     .victory-message {
-        font-size: 20px;
+        font-size: 18px;
+        margin-bottom: 15px;
     }
     
     .valentine-question {
-        font-size: 24px;
+        font-size: 20px;           
+        margin-top: 10px;           
+    }
+    
+    .email-prompt {
+        margin-top: 15px;           
+        padding-top: 15px;          
+    }
+    
+    .email-button {
+        padding: 14px 30px;         
+        font-size: 18px;            
     }
 }
 </style>
