@@ -282,20 +282,10 @@ body {
 }
 
 .victory-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%vw;
-    height: 75%vh;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.4s ease;
-    padding: 0;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .victory-modal.active {
@@ -308,7 +298,7 @@ body {
     padding: 50px;
     max-width: 800px;
     width: 90%;
-    max-height: 85vh;
+    max-height: 90vh;
     overflow-y: auto;
     text-align: center;
     animation: slideUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -425,65 +415,33 @@ body {
 }
 
 @media (max-width: 600px) {
-    .game-title {
-        font-size: 32px;
-    }
-    
-    .letter {
-        font-size: 16px;
-    }
-    
-    .grid {
-        gap: 3px;
-        padding: 8px;
-    }
-    
-    .current-word {
-        font-size: 22px;
-    }
-    
     .victory-modal {
-        padding: 0;
+        padding: 10px;        /* ✅ Small gap from edges */
     }
     
     .victory-content {
-        padding: 15px;
-        max-height: 75vh;
-        width: 95%;
-        border-radius: 12px;
+        padding: 25px 20px;   /* ✅ Better spacing */
+        max-height: 80vh;     /* ✅ Fits on screen */
     }
     
     .victory-title {
-        font-size: 14px;
-        margin-bottom: 6px;
-        line-height: 1.0;
-    }
-    
-    .victory-heart {
-        font-size: 45px;
-        margin: 6px 0;
+        font-size: 16px;      /* ✅ More readable */
+        margin-bottom: 10px;  /* ✅ Better spacing */
+        line-height: 1.3;     /* ✅ Better line spacing */
     }
     
     .victory-message {
-        font-size: 12px;
-        margin-bottom: 8px;
-        line-height: 1.3;
+        font-size: 18px;      /* ✅ Up from 12px */
+        margin-bottom: 15px;  /* ✅ Better spacing */
     }
     
     .valentine-question {
-        font-size: 15px;
-        margin-top: 6px;
-        line-height: 1.2;
-    }
-    
-    .email-prompt {
-        margin-top: 8px;
-        padding-top: 8px;
+        font-size: 20px;      /* ✅ Up from 15px */
     }
     
     .email-button {
-        padding: 10px 20px;
-        font-size: 11px;
+        padding: 14px 28px;   /* ✅ Better button size */
+        font-size: 16px;      /* ✅ Up from 11px */
     }
 }
 
