@@ -333,8 +333,8 @@ body {
 }
 
 .victory-title {
-    font-size: 33px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 550;
     margin-bottom: 20px;
     color: var(--text-dark);
 }
