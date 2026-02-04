@@ -467,7 +467,7 @@ body {
 
 <div class="game-container">
     <div class="title-section">
-        <h1 class="game-title">Strands</h1>
+        <h1 class="game-title">Valentine's Strands</h1>
         <div class="game-date" id="gameDate"></div>
     </div>
     <div class="theme-container">
