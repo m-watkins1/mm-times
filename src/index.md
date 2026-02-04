@@ -34,7 +34,7 @@ body {
 
 .nyt-header {
     width: 100%;
-    background: #803c40;
+    background: white;
     border-bottom: 1px solid var(--border-gray);
     padding: 12px 20px;
     display: flex;
@@ -304,7 +304,9 @@ body {
     border-radius: 16px;
     padding: 50px;
     max-width: 800px;
-    width: 100%;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
     text-align: center;
     animation: slideUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
