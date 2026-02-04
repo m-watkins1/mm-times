@@ -282,8 +282,18 @@ body {
 }
 
 .victory-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.4s ease;
     padding: 20px;
     overflow-y: auto;
 }
@@ -415,33 +425,65 @@ body {
 }
 
 @media (max-width: 600px) {
+    .game-title {
+        font-size: 32px;
+    }
+    
+    .letter {
+        font-size: 16px;
+    }
+    
+    .grid {
+        gap: 3px;
+        padding: 8px;
+    }
+    
+    .current-word {
+        font-size: 22px;
+    }
+    
     .victory-modal {
-        padding: 10px;        /* ✅ Small gap from edges */
+        padding: 10px;
     }
     
     .victory-content {
-        padding: 25px 20px;   /* ✅ Better spacing */
-        max-height: 80vh;     /* ✅ Fits on screen */
+        padding: 25px 20px;
+        max-height: 80vh;
+        width: 95%;
+        border-radius: 12px;
     }
     
     .victory-title {
-        font-size: 16px;      /* ✅ More readable */
-        margin-bottom: 10px;  /* ✅ Better spacing */
-        line-height: 1.3;     /* ✅ Better line spacing */
+        font-size: 16px;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+    
+    .victory-heart {
+        font-size: 50px;
+        margin: 8px 0;
     }
     
     .victory-message {
-        font-size: 18px;      /* ✅ Up from 12px */
-        margin-bottom: 15px;  /* ✅ Better spacing */
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 1.4;
     }
     
     .valentine-question {
-        font-size: 20px;      /* ✅ Up from 15px */
+        font-size: 20px;
+        margin-top: 10px;
+        line-height: 1.3;
+    }
+    
+    .email-prompt {
+        margin-top: 15px;
+        padding-top: 15px;
     }
     
     .email-button {
-        padding: 14px 28px;   /* ✅ Better button size */
-        font-size: 16px;      /* ✅ Up from 11px */
+        padding: 14px 28px;
+        font-size: 16px;
     }
 }
 
@@ -498,7 +540,7 @@ body {
     </div>
 </div>
 
-```js
+<script>
 // Wait for DOM to be ready
 setTimeout(() => {
     // Set current date
@@ -842,8 +884,8 @@ setTimeout(() => {
         if (victoryModal) {
             victoryModal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
     }
-}
 
     // Initialize
     renderGrid();
@@ -851,15 +893,16 @@ setTimeout(() => {
 }, 100);
 
 // Email button functionality
-const emailButton = document.getElementById('emailButton');
-if (emailButton) {
-    emailButton.addEventListener('click', () => {
-        const recipient = 'madisoncwatkins@gmail.com';
-        const subject = encodeURIComponent('YES!');
-        const body = encodeURIComponent("YES, Now let's kiss 💋");
-        
-        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    });
-}
-
-```
+setTimeout(() => {
+    const emailButton = document.getElementById('emailButton');
+    if (emailButton) {
+        emailButton.addEventListener('click', () => {
+            const recipient = 'madisoncwatkins@gmail.com';
+            const subject = encodeURIComponent('YES!');
+            const body = encodeURIComponent("YES, Now let's kiss 💋");
+            
+            window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        });
+    }
+}, 200);
+</script>
