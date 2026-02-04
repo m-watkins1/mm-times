@@ -338,7 +338,7 @@ body {
 }
 
 .victory-heart {
-    font-size: 75px;
+    font-size: 69px;
     margin: 20px 0;
     animation: heartBeat 1.5s ease-in-out infinite;
 }
