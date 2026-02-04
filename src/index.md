@@ -286,16 +286,16 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%vw;
+    height: 100%vh;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
     z-index: 1000;
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.4s ease;
-    padding: 20px;
-    overflow-y: auto;
+    padding: 0;
+    overflow: hidden;
 }
 
 .victory-modal.active {
@@ -308,11 +308,12 @@ body {
     padding: 50px;
     max-width: 800px;
     width: 90%;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-y: auto;
     text-align: center;
     animation: slideUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin: auto;
 }
 
 @keyframes slideUp {
@@ -339,8 +340,8 @@ body {
 }
 
 .victory-heart {
-    font-size: 75px;
-    margin: 20px 0;
+    font-size: 65px;
+    margin: 10px 0;
     animation: heartBeat 1.5s ease-in-out infinite;
 }
 
@@ -441,41 +442,51 @@ body {
         font-size: 22px;
     }
     
+    .victory-modal {
+        padding: 0;
+    }
+    
     .victory-content {
-        padding: 20px;
-        max-height: 85vh;
+        padding: 15px;
+        max-height: 75vh;
+        width: 95%;
+        border-radius: 12px;
     }
     
     .victory-title {
-        font-size: 22px;
-        margin-bottom: 10px;
+        font-size: 16px;
+        margin-bottom: 6px;
+        line-height: 1.2;
     }
     
     .victory-heart {
-        font-size: 50px;
-        margin: 10px 0;
+        font-size: 35px;
+        margin: 6px 0;
     }
     
     .victory-message {
-        font-size: 18px;
-        margin-bottom: 15px;
+        font-size: 14px;
+        margin-bottom: 8px;
+        line-height: 1.3;
     }
     
     .valentine-question {
-        font-size: 20px;           
-        margin-top: 10px;           
+        font-size: 16px;
+        margin-top: 6px;
+        line-height: 1.2;
     }
     
     .email-prompt {
-        margin-top: 15px;           
-        padding-top: 15px;          
+        margin-top: 8px;
+        padding-top: 8px;
     }
     
     .email-button {
-        padding: 14px 30px;         
-        font-size: 18px;            
+        padding: 10px 20px;
+        font-size: 14px;
     }
 }
+
 </style>
 
 <div class="nyt-header">
