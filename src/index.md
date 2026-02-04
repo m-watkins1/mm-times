@@ -287,7 +287,7 @@ body {
     top: 0;
     left: 0;
     width: 100%vw;
-    height: 100%vh;
+    height: 75%vh;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
     z-index: 1000;
@@ -454,24 +454,24 @@ body {
     }
     
     .victory-title {
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 6px;
-        line-height: 1.2;
+        line-height: 1.0;
     }
     
     .victory-heart {
-        font-size: 35px;
+        font-size: 45px;
         margin: 6px 0;
     }
     
     .victory-message {
-        font-size: 14px;
+        font-size: 12px;
         margin-bottom: 8px;
         line-height: 1.3;
     }
     
     .valentine-question {
-        font-size: 16px;
+        font-size: 15px;
         margin-top: 6px;
         line-height: 1.2;
     }
@@ -483,7 +483,7 @@ body {
     
     .email-button {
         padding: 10px 20px;
-        font-size: 14px;
+        font-size: 11px;
     }
 }
 
