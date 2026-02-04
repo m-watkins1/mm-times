@@ -293,6 +293,8 @@ body {
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.4s ease;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .victory-modal.active {
