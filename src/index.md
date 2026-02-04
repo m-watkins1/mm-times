@@ -248,6 +248,7 @@ body {
     background: #efefe6;
     border-radius: 3px;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .hint-fill {
@@ -869,7 +870,10 @@ setTimeout(() => {
 
     function showVictory() {
         const victoryModal = document.getElementById('victoryModal');
-        if (victoryModal) victoryModal.classList.add('active');
+        if (victoryModal) {
+            victoryModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
 }
 
     // Initialize
