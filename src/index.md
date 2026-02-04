@@ -3,6 +3,7 @@ title: Strands
 toc: false
 ---
 
+```html
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Chomsky&display=swap');
 
@@ -214,6 +215,7 @@ body {
 
 .hint-button {
     background: #cc3333;
+    color: white;
     border: 2px solid var(--bg-pink);
     border-radius: 20px;
     padding: 10px 24px;
@@ -486,7 +488,6 @@ body {
         font-size: 16px;
     }
 }
-
 </style>
 
 <div class="nyt-header">
@@ -541,9 +542,7 @@ body {
 </div>
 
 <script>
-// Wait for DOM to be ready
 setTimeout(() => {
-    // Set current date
     const gameDateEl = document.getElementById('gameDate');
     if (gameDateEl) {
         const today = new Date();
@@ -551,13 +550,11 @@ setTimeout(() => {
         gameDateEl.textContent = today.toLocaleDateString('en-US', options);
     }
 
-    // Game Configuration - "Dear my Marina, will you be my Valentine?"
     const gameWords = ['DEAR', 'MY', 'MARINA', 'WILL', 'YOU', 'BE', 'MY', 'VALENTINE'];
     const GRID_ROWS = 6;
     const GRID_COLS = 8;
     const GRID_SIZE = GRID_ROWS * GRID_COLS;
 
-    // Common English words dictionary for validation (extended list)
     const englishWords = new Set([
         'THE', 'AND', 'FOR', 'ARE', 'BUT', 'NOT', 'YOU', 'ALL', 'CAN', 'HER', 'WAS', 'ONE', 
         'OUR', 'OUT', 'DAY', 'HAD', 'HAS', 'HIS', 'HOW', 'MAN', 'NEW', 'NOW', 'OLD', 'SEE',
@@ -602,12 +599,10 @@ setTimeout(() => {
         'BEAN', 'EARN', 'WEAN', 'VARY', 'VALE', 'VEIL', 'LIAR', 'NEAR', 'YEAR'
     ]);
 
-    // Create a strategic grid layout that allows words to be found
     function createStrategicGrid() {
         const grid = Array(GRID_SIZE).fill('');
         const placements = [];
         
-        // Define word placements (row, col, direction: 'H'orizontal, 'V'ertical, 'D'iagonal)
         const wordPlacements = [
             { word: 'DEAR', row: 0, col: 0, dir: 'H' },
             { word: 'MY', row: 0, col: 5, dir: 'H' },
@@ -615,11 +610,10 @@ setTimeout(() => {
             { word: 'WILL', row: 2, col: 0, dir: 'H' },
             { word: 'YOU', row: 2, col: 5, dir: 'H' },
             { word: 'BE', row: 3, col: 0, dir: 'H' },
-            { word: 'MY', row: 3, col: 3, dir: 'H' }, // Second "MY"
-            { word: 'VALENTINE', row: 4, col: 0, dir: 'H' } // Spangram
+            { word: 'MY', row: 3, col: 3, dir: 'H' },
+            { word: 'VALENTINE', row: 4, col: 0, dir: 'H' }
         ];
         
-        // Place each word in the grid
         wordPlacements.forEach(placement => {
             const { word, row, col, dir } = placement;
             const positions = [];
@@ -640,7 +634,6 @@ setTimeout(() => {
             placements.push({ word, positions });
         });
         
-        // Fill empty spaces with random letters
         const fillerLetters = 'AEILNORSTUVWY';
         for (let i = 0; i < grid.length; i++) {
             if (grid[i] === '') {
@@ -653,7 +646,6 @@ setTimeout(() => {
 
     const { grid: gridLetters, placements: wordPlacements } = createStrategicGrid();
 
-    // Game state
     const state = {
         currentSelection: [],
         foundWords: new Set(),
@@ -665,7 +657,6 @@ setTimeout(() => {
         usedHintWords: new Set()
     };
 
-    // Check if selected indices match any word placement
     function findMatchingWord() {
         const sortedSelection = [...state.currentSelection].sort((a, b) => a - b);
         
@@ -680,7 +671,6 @@ setTimeout(() => {
         return null;
     }
 
-    // Render grid
     function renderGrid() {
         const grid = document.getElementById('grid');
         if (!grid) return;
@@ -766,14 +756,12 @@ setTimeout(() => {
         const word = state.currentSelection.map(i => gridLetters[i]).join('');
         const matchedWord = findMatchingWord();
         
-        // Check if this exact selection was already found
         const selectionKey = [...state.currentSelection].sort((a, b) => a - b).join(',');
         const alreadyFound = state.foundWordInstances.some(instance => 
             [...instance.indices].sort((a, b) => a - b).join(',') === selectionKey
         );
         
         if (matchedWord && !alreadyFound) {
-            // CORRECT WORD!
             state.foundWords.add(matchedWord);
             state.foundWordInstances.push({
                 word: matchedWord,
@@ -791,12 +779,10 @@ setTimeout(() => {
             
             updateDisplay();
             
-            // Check if won (all 8 word instances found)
             if (state.foundWordInstances.length === gameWords.length) {
                 setTimeout(showVictory, 600);
             }
         } else if (word.length >= 4 && englishWords.has(word) && !gameWords.includes(word)) {
-            // Valid English word that's NOT a target word - grant hint
             if (!state.usedHintWords.has(word)) {
                 state.usedHintWords.add(word);
                 state.incorrectWordCount++;
@@ -810,14 +796,12 @@ setTimeout(() => {
                 updateHintProgress();
             }
             
-            // Shake animation for non-target word
             const currentWordEl = document.getElementById('currentWord');
             if (currentWordEl) {
                 currentWordEl.classList.add('shake');
                 setTimeout(() => currentWordEl.classList.remove('shake'), 400);
             }
         } else if (word.length >= 4) {
-            // Invalid word - just shake
             const currentWordEl = document.getElementById('currentWord');
             if (currentWordEl) {
                 currentWordEl.classList.add('shake');
@@ -850,7 +834,6 @@ setTimeout(() => {
     if (hintBtn) {
         hintBtn.addEventListener('click', () => {
             if (state.hintsAvailable > 0) {
-                // Find unfound words
                 const unfoundWords = wordPlacements.filter(placement => {
                     const selectionKey = [...placement.positions].sort((a, b) => a - b).join(',');
                     return !state.foundWordInstances.some(instance =>
@@ -883,26 +866,26 @@ setTimeout(() => {
         const victoryModal = document.getElementById('victoryModal');
         if (victoryModal) {
             victoryModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
     }
 
-    // Initialize
     renderGrid();
     updateDisplay();
 }, 100);
 
-// Email button functionality
 setTimeout(() => {
     const emailButton = document.getElementById('emailButton');
     if (emailButton) {
         emailButton.addEventListener('click', () => {
             const recipient = 'madisoncwatkins@gmail.com';
             const subject = encodeURIComponent('YES!');
-            const body = encodeURIComponent("YES, Now let's kiss 💋");
+            const body = encodeURIComponent("YES, Now let's kiss 💋 MWAHHHHHHHH");
             
             window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
         });
     }
 }, 200);
 </script>
+
+```
