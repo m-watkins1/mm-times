@@ -870,7 +870,7 @@ setTimeout(() => {
     function showVictory() {
         const victoryModal = document.getElementById('victoryModal');
         if (victoryModal) victoryModal.classList.add('active');
-    }
+}
 
     // Initialize
     renderGrid();
